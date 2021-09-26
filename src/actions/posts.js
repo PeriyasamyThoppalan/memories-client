@@ -52,8 +52,13 @@ export const deletePost = (id) => async (dispatch) => {
 
 export const likePost =(id) => async(dispatch) =>{
   try {
+    console.log('FE: ACTION CREATOR DISPATCHED:BEFORE API CALL LIKEPOST')
     const {data}=await api.likePost(id);
+    console.log('FE: ACTION CREATOR DISPATCHED:AFTER API CALL LIKEPOST')
+
     dispatch({type:LIKE,payload:data});
+    console.log(data);
+    console.log('FE: ACTION CREATOR DISPATCHED:AFTER Dispatching type=LIKE reducer');
 
   } catch (error) {
     console.log(error);
